@@ -66,6 +66,18 @@ export class AuthService {
     };
   }
 
+  async logout({ refreshToken }: RefreshTokenDto) {
+    if (!refreshToken)
+      throw new UnauthorizedException('You are not authorized');
+
+    const result = await this.jwtService.verifyAsync(refreshToken);
+
+    if (!result) throw new UnauthorizedException('Invalid token or expired');
+
+    const user = await this.UserModel.findById(result._id);
+    const tokens = await this.issueTokenPair(String(user._id));
+  }
+
   async validateUser(dto: AuthDto): Promise<UserModel> {
     const user = await this.UserModel.findOne({ email: dto.email });
     if (!user) throw new UnauthorizedException('User not found');
