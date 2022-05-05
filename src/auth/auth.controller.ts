@@ -1,11 +1,4 @@
-import {
-  Body,
-  Controller,
-  HttpCode,
-  Post,
-  UsePipes,
-  ValidationPipe,
-} from '@nestjs/common';
+import { Body, Controller, HttpCode, Post } from '@nestjs/common';
 import { AuthDto } from './dto/auth.dto';
 import { AuthService } from './auth.service';
 import { RefreshTokenDto } from './dto/refreshToken.dto';
@@ -35,6 +28,6 @@ export class AuthController {
   @HttpCode(200)
   @Post('logout')
   async logout(@Body() dto: RefreshTokenDto) {
-    return this.AuthService.logout;
+    return this.AuthService.logout(dto);
   }
 }
