@@ -64,7 +64,7 @@ export class GenreService {
   }
 
   async createNewGenre() {
-    const defaultFileds = {
+    const defaultFileds: UpdateGenreDto = {
       name: '',
       slug: '',
       description: '',
