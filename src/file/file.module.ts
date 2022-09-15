@@ -1,17 +1,12 @@
 import { Module } from '@nestjs/common';
 import { FileService } from './file.service';
 import { FileController } from './file.controller';
-import { ServeStaticModule } from '@nestjs/serve-static';
-import { path } from 'app-root-path';
 import { FileModel } from './file.model';
 import { TypegooseModule } from 'nestjs-typegoose';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
   imports: [
-    ServeStaticModule.forRoot({
-      rootPath: `${path}/uploads`,
-      serveRoot: '/uploads',
-    }),
     TypegooseModule.forFeature([
       {
         typegooseClass: FileModel,
@@ -20,6 +15,7 @@ import { TypegooseModule } from 'nestjs-typegoose';
         },
       },
     ]),
+    ConfigModule,
   ],
   providers: [FileService],
   controllers: [FileController],

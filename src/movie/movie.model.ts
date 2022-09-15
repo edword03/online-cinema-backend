@@ -14,11 +14,17 @@ export class Parameters {
 
   @prop()
   country: string;
+
+  @prop()
+  ageRate: string;
 }
 
 export class MovieModel extends TimeStamps {
   @prop()
   poster: string;
+
+  @prop()
+  tagline: string;
 
   @prop()
   bigPoster: string;
@@ -40,6 +46,9 @@ export class MovieModel extends TimeStamps {
 
   @prop({ default: 0 })
   countViews: number;
+
+  @prop()
+  trailerUrl: string;
 
   @prop()
   videoUrl: string;

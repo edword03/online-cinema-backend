@@ -110,18 +110,20 @@ export class MovieService {
 
   // admin
   async createMovie() {
-    const defaultFileds: UpdateMovieDto = {
+    const defaultFields: UpdateMovieDto = {
       title: '',
       poster: '',
       bigPoster: '',
       description: '',
+      tagline: '',
+      trailerUrl: '',
       slug: '',
       videoUrl: '',
       genres: [],
       actors: [],
     };
 
-    const movie = await this.movieModel.create(defaultFileds);
+    const movie = await this.movieModel.create(defaultFields);
 
     return movie._id;
   }

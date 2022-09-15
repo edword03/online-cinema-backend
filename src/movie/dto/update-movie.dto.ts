@@ -21,8 +21,14 @@ export class UpdateMovieDto {
   @IsString()
   title: string;
 
-  // @IsString()
+  @IsString()
+  tagline: string;
+
+  @IsString()
   description?: string;
+
+  @IsString()
+  trailerUrl: string;
 
   @IsString()
   slug: string;

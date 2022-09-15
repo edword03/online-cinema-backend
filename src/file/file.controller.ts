@@ -22,6 +22,14 @@ export class FileController {
     @UploadedFile() file: Express.Multer.File,
     @Query('folder') folder?: string,
   ) {
-    return this.FileController.saveFiles([file], folder);
+    return this.FileController.saveFiles(file, folder);
+  }
+
+  @Post()
+  @HttpCode(200)
+  @Auth('admin')
+  @UseInterceptors(FileInterceptor('file'))
+  async deleteFile(@Query() file: string) {
+    return this.FileController.removeFile(file);
   }
 }

@@ -30,6 +30,7 @@
     "@nestjs/serve-static": "^2.2.2",
     "@typegoose/typegoose": "^9.8.1",
     "app-root-path": "^3.0.0",
+    "aws-sdk": "^2.1185.0",
     "bcryptjs": "^2.4.3",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.13.2",
